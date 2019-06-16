@@ -1,5 +1,5 @@
 <?php
-//  Tek satýr  tek resim ekleme verotnet uygulamasý
+//  Tek satÄ±r  tek resim ekleme verotnet uygulamasÄ±
 function verotnet($filename,$NamePre,$picsName,$picsPath,$imgtype,$picsH=NULL,$picsW=NULL,$picsCuolity=NULL,$picsResize,$picsCrop,$imgWTRmrk=NULL,$imgWTRmrkPos=NULL){
 		require 'class.upload.php';
 		$image = new Upload($filename);
@@ -15,8 +15,8 @@ function verotnet($filename,$NamePre,$picsName,$picsPath,$imgtype,$picsH=NULL,$p
 			if($imgWTRmrk!=NULL){$image->image_watermark = $imgWTRmrk;} 					//'watermark.png'
 			if($imgWTRmrkPos!=NULL){$image->image_watermark_position = $imgWTRmrkPos;}		//'BR' - Bottom Right
 			$image->file_name_body_pre = $NamePre;											//'thumb_'
-			$image->file_new_name_body = $picsName;											// Resim Adý
-			$image->Process($picsPath);														// 'upload' Dosya yüklenecek yer
+			$image->file_new_name_body = $picsName;											// Resim AdÄ±
+			$image->Process($picsPath);														// 'upload' Dosya yÃ¼klenecek yer
 
 			if ( !$image->processed ){
 				$image->error;
