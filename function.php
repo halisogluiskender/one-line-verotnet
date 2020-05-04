@@ -1,16 +1,20 @@
 <?php
 //  Tek satır  tek dosya yükleme verotnet uygulaması
-function verotnet($filename = array(), $NamePre, $picsName, $picsPath, $imgtype, $picsH = NULL, $picsW = NULL, $picsCuolity = NULL, $picsResize, $picsCrop, $imgWTRmrk = NULL, $imgWTRmrkPos = NULL)
+function verotnet($filename, $NamePre, $picsName, $picsPath, $imgtype, $picsH = NULL, $picsW = NULL, $picsCuolity = NULL, $picsResize, $picsCrop, $imgWTRmrk = NULL, $imgWTRmrkPos = NULL)
 {
 	require 'class.upload.php';
 
 	$files = array();
 	foreach ($filename as $k => $l) {
-		foreach ($l as $i => $v) {
-			if (!array_key_exists($i, $files)) {
-				$files[$i] = array();
+		if (is_array($l)) {
+			foreach ($l as $i => $v) {
+				if (!array_key_exists($i, $files)) {
+					$files[$i] = array();
+				}
+				$files[$i][$k] = $v;
 			}
-			$files[$i][$k] = $v;
+		} else {
+			$files[0][$k] = $l;
 		}
 	}
 	foreach ($files as $file) {
